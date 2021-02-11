@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>2d</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight);
+        var  renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+	    document.body.appendChild( renderer.domElement );
+    
+        scene.background = new THREE.Color(0x2a3b4c);
+
+        var gCirculo = new THREE.CircleGeometry( 0.5, 32 );
+        var gCuadrado = new THREE.PlaneGeometry( 1, 1 );
+        var mCirculo = new THREE.MeshBasicMaterial( { color:0xFF0000 } );
+		var mCuadrado = new THREE.MeshBasicMaterial( { color: 0x00FF00 , side: THREE.DoubleSide } );
+
+        var circulo = new THREE.Mesh( gCirculo, mCirculo );
+        var cuadrado = new THREE.Mesh( gCuadrado, mCuadrado );
+        scene.add( circulo );
+        scene.add( cuadrado );
+        camera.position.z = 10;
+        
+		
+     renderer.render(scene,camera);
+    </script>
+    </body>
+</html>
