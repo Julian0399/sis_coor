@@ -1,0 +1,2 @@
+https://threejsfundamentals.org/threejs/lessons/threejs-primitives.html
+https://www.youtube.com/watch?v=pJaP0GZyUbA&t=551s

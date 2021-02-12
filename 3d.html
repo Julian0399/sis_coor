@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>3d cilindro</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight);
+        var  renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+	    document.body.appendChild( renderer.domElement );
+    
+        scene.background = new THREE.Color(0x2a3b4c);
+        var gCilindro = new THREE.CylinderGeometry( 5, 5, 20, 32 );
+        var mCilindro = new THREE.MeshBasicMaterial( {color: 0xffff00,wireframe:true} );
+        var cilindro = new THREE.Mesh( gCilindro, mCilindro);
+        scene.add(cilindro);
+
+        camera.position.z = 45;
+        
+		
+     //animar
+     var animate = function(){
+        requestAnimationFrame(animate);
+        cilindro.rotation.x += 0.01;
+        cilindro.rotation.y += 0.01;
+        cilindro.rotation.z += 0.01;
+        renderer.render(scene,camera);
+
+     }
+     animate();
+    </script>
+    </body>
+</html>
